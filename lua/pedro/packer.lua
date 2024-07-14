@@ -24,6 +24,16 @@ return require('packer').startup(function(use)
 	  end
   })
 
+  use ({
+    'tpope/vim-dadbod',
+    requires= {
+        'kristijanhusak/vim-dadbod-ui',
+        'kristijanhusak/vim-dadbod-completion',
+    },
+  })
+
+  use ('smolck/command-completion.nvim')
+
   use ('ThePrimeagen/harpoon')
   use ('mbbill/undotree')
   use ('tpope/vim-fugitive')
