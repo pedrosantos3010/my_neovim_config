@@ -37,8 +37,16 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- })
 local cmp = require('cmp')
 cmp.setup({ 
-	mapping = cmp_mappings
+	mapping = cmp_mappings,
+    sources = cmp.config.sources {
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
+        { name = "vim-dadbod-completion", priority = 700 }, -- add new source
+    }
 })
+
 
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
